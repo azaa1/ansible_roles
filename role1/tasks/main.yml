@@ -1,0 +1,19 @@
+---
+# tasks file for role1
+- name: Ping Servers
+  ping:
+
+- name: Change Host Name CentOS
+  when: ansible_distribution == "CentOS"
+  hostname:
+    name: "{{ centos_hostname }}"
+
+- name: Change Host Name Ubuntu
+  when: ansible_distribution == "Ubuntu"
+  hostname:
+    name: "{{ ubuntu_hostname }}"
+
+- name: Copy Files to Remote Hosts
+  copy:
+    src: testfile
+    dest: /tmp/

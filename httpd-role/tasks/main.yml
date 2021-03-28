@@ -1,0 +1,11 @@
+---
+# tasks file for nginx-role
+- name: Ping Servers
+  ping:
+
+- name: Install Nginx
+  yum:
+    name: httpd
+    state: latest
+  notify:
+    Start apache
